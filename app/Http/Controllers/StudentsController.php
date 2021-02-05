@@ -122,7 +122,7 @@ class StudentsController extends Controller
         // untuk photo 
         $data = $request->all();
         $data['photo'] = $request->file('photo')->store(
-            'assets/student',
+            // 'assets/student',
             'public'
         );
 

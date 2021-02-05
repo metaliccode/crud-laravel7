@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('about', ['nama' => $nama]);
 // });
 
+
 // untuk di arahkan ke sebuah controller
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
