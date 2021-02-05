@@ -8,9 +8,21 @@
         <div class="col-10">
             <div class="mt-3">
                 <h1>Form Ubah Data Mahasiswa</h1>
-                <form class="col-6" method="POST" action="/students/{{$student->id}}">
+                <form class="col-6" method="POST" action="/students/{{$student->id}}" enctype="multipart/form-data">
                     @method('patch')
                     @csrf
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <div class="d-flex justify-content-start mb-2">
+                            <img src="{{url($student->photo)}}" alt="" width="auto" height="40">
+                        </div>
+                        <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{$student->photo}}">
+                        @error('photo')
+                          <div id="validationServer03Feedback" class="invalid-feedback">
+                              {{$message}}
+                          </div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                       <label for="nama">Nama</label>
                       <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukan Nama" name="nama" value="{{$student->nama}}">

@@ -8,7 +8,7 @@
         <div class="col-10">
             <div class="mt-3">
                 <h1>Form Tambah Data Mahasiswa</h1>
-                <form class="col-6" method="POST" action="/students">
+                <form class="col-6" method="POST" action="/students" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                       <label for="nama">Nama</label>
@@ -18,6 +18,15 @@
                             {{$message}}
                         </div>
                       @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" placeholder="Masukan photo" name="photo" value="{{old('photo')}}">
+                        @error('photo')
+                          <div id="validationServer03Feedback" class="invalid-feedback">
+                              {{$message}}
+                          </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="nip">NIP</label>

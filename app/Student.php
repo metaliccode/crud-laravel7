@@ -10,7 +10,12 @@ class Student extends Model
     use SoftDeletes;
 
     //yang boleh diisi 
-    protected $fillable = ['nama', 'nip', 'email', 'jurusan'];
+    protected $fillable = ['nama', 'photo', 'nip', 'email', 'jurusan'];
     // yang tidak boleh diisi
     // protected $guarded = 'id';
+
+    public function getPhotoAttribute($value)
+    {
+        return url('storage/' . $value);
+    }
 }

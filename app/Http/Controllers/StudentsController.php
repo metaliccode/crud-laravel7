@@ -61,10 +61,19 @@ class StudentsController extends Controller
             'nip' => 'required|size:10',
             'email' => 'required',
             'jurusan' => 'required',
+            'photo' => 'required|image',
         ]);
 
+        // untuk photo 
+        $data = $request->all();
+        $data['photo'] = $request->file('photo')->store(
+            'assets/student',
+            'public'
+        );
+
         // hanya mngambill yang ada di fillable saja
-        Student::create($request->all());
+        // Student::create($request->all());
+        Student::create($data);
         return redirect('/students')->with('status', 'Data Mahasiswa Berhasil Ditambahkan!');
     }
 
@@ -107,14 +116,23 @@ class StudentsController extends Controller
             'nip' => 'required|size:10',
             'email' => 'required',
             'jurusan' => 'required',
+            // 'photo' => 'required'
         ]);
+
+        // untuk photo 
+        $data = $request->all();
+        $data['photo'] = $request->file('photo')->store(
+            'assets/student',
+            'public'
+        );
 
         Student::where('id', $student->id)
             ->update([
                 'nama' => $request->nama,
                 'nip' => $request->nip,
                 'email' => $request->email,
-                'jurusan' => $request->jurusan
+                'jurusan' => $request->jurusan,
+                'photo' => $data['photo']
             ]);
 
         return redirect('/students')->with('status', 'Data Mahasiswa Berhasil Diubah!');

@@ -22,8 +22,7 @@
                       <a href="/students/{{$student->id}}" class="badge badge-primary badge-pill">Detail</a>
                     </li>
                     @endforeach
-
-                  </ul>
+                </ul>
                 
             </div>
         </div>

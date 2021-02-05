@@ -16,6 +16,7 @@
                             <th scope="col">NIP</th>
                             <th scope="col">Email</th>
                             <th scope="col">Jurusan</th>
+                            <th scope="col">Photo</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -30,6 +31,9 @@
                             <td>{{$mhs->nip}}</td>
                             <td>{{$mhs->email}}</td>
                             <td>{{$mhs->jurusan}}</td>
+                            <td>
+                                <img src="{{ url($mhs->photo) }}" alt="" width="auto" height="30px">
+                            </td>
                             <td>
                                 <a href="#" class="badge badge-success">Edit</a>
                                 <a href="#" class="badge badge-danger">Hapus</a>
