@@ -16,7 +16,7 @@ class Student extends Model
 
     public function getPhotoAttribute($value)
     {
-        // return url('storage/' . $value);
-        return url('uploads/' . $value);
+        return url('storage/' . $value);
+        // return url('uploads/' . $value);
     }
 }
